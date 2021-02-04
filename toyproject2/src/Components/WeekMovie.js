@@ -4,10 +4,10 @@ import axios from 'axios';
 
 function WeekMovie({kkey, tiitle}) {
     return(
-        <div>
-            <h2>{tiitle}</h2>
-            <h3>{kkey}</h3>
-        </div>
+        <p>
+            <span className="movie-title">{tiitle}</span>
+            <span>{kkey}</span>
+        </p>
 
     )
 }

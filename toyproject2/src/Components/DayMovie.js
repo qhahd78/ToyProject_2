@@ -1,12 +1,12 @@
 import React from 'react';
-
+import './DayMovie.css';
 
 function DayMovie ({kkkey, tiiitle}) {
     return (
-        <div>
-            <h2>{tiiitle}</h2>
-            <h2>{kkkey}</h2>    
-        </div>
+        <p>
+            <span className="movie-title">{tiiitle}</span>
+            <span className="movie-year">{kkkey}</span>  
+        </p>  
     )
 }
 

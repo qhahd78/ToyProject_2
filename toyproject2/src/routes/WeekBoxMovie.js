@@ -14,10 +14,8 @@ class WeekBoxMovie extends React.Component{
           {weeklyBoxOfficeList}
        } 
     }
-       = await axios.get('http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210131');
+       = await axios.get('http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210131&weekGb=0');
     
-  
-    console.log(weeklyBoxOfficeList)
     this.setState({boxmovies: weeklyBoxOfficeList, isLoading: false})
     }
   
@@ -29,7 +27,6 @@ class WeekBoxMovie extends React.Component{
       const {isLoading, boxmovies} = this.state;
       
         return <div>{isLoading ? "Loading .. " : boxmovies.map((boxmovie) => {
-        console.log(boxmovie);
   
         return (
             <WeekMovie 

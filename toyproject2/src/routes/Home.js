@@ -14,8 +14,7 @@ class Home extends React.Component{
           {movieList}
          }
        }
-         = await axios.get("http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210101");
-        console.log(movieList)
+         = await axios.get("http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210101&itemPerPage=20");
         this.setState({ movies: movieList, isLoading: false })
       }
       componentDidMount() {
@@ -24,7 +23,6 @@ class Home extends React.Component{
       render () {
         const {isLoading, movies} = this.state;
         return <div>{ isLoading ? "Loading..." : movies.map((movie) => {
-          console.log(movie);
           return (
             <Movie 
              key={movie.movieCd}
