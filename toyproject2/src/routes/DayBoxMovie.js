@@ -14,7 +14,7 @@ class DayBoxMovie extends React.Component{
           {dailyBoxOfficeList}
        } 
     }
-       = await axios.get('http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20190131');
+       = await axios.get('http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210204');
     
     this.setState({daymovies: dailyBoxOfficeList, isLoading: false})
     }

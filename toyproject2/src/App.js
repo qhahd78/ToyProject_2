@@ -37,13 +37,14 @@ function App(){
                 <DayBoxMovie />
             </div>
         </div>
-        <div className="movie-list">
+        {/* <div className="movie-list">
             <p className="title">무작위 영화목록</p>
             <div className="movie-list2">
               <Home />
             </div>
             
         </div>
+        */}
         <div className="movie-list">
             <p className="title">이번주 박스오피스 영화목록</p>
             <div className="movie-list2">

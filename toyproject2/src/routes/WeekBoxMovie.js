@@ -3,39 +3,82 @@ import axios from 'axios';
 import WeekMovie from '../Components/WeekMovie';
 
 class WeekBoxMovie extends React.Component{
+
     state= {
       isLoading : true,
       boxmovies : [],
+      value: "",
       }
   
     getBoxMovies = async() => {
-      const {data: {
-          boxOfficeResult:
-          {weeklyBoxOfficeList}
-       } 
+      const search = this.state.value;
+
+      try{
+        if (search === "") {
+          this.setState({ none: "결과값이 없습니다. ", movies: [], isLoading: false })
+        // if(search === ""){
+        //   const {data: {
+        //     boxOfficeResult:
+        //     {weeklyBoxOfficeList}
+        //   }
+        //   }
+        //   = await axios.get('http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f6649d26347bb450475cfb25dee1dd41&weekGb=0', {
+        //     params: {targetDt: 20200304}
+        //   });
+
+        //   this.setState({boxMovies: weeklyBoxOfficeList, isLoading: false})
+        //   console.log(weeklyBoxOfficeList)
+        } else {
+      
+          const {data: {
+              boxOfficeResult:
+              {weeklyBoxOfficeList}
+          } 
+          }
+          = await axios.get('http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f6649d26347bb450475cfb25dee1dd41&weekGb=0', {
+            params: {targetDt: search}
+          });
+        
+        this.setState({boxmovies: weeklyBoxOfficeList, isLoading: false})
+      }
+  } catch (error) {
+    console.log(error)
+  }
     }
-       = await axios.get('http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210131&weekGb=0');
     
-    this.setState({boxmovies: weeklyBoxOfficeList, isLoading: false})
+    handleChange = (e) => {
+      this.setState({value: e.target.value});
     }
-  
+
+    handleSubmit = (e) => {
+      e.preventDefault();
+      this.getBoxMovies();
+
+    }
+
     componentDidMount(){
       this.getBoxMovies();
     }
   
     render (){
-      const {isLoading, boxmovies} = this.state;
-      
-        return <div>{isLoading ? "Loading .. " : boxmovies.map((boxmovie) => {
+      const {isLoading, boxmovies, search} = this.state;
   
         return (
-            <WeekMovie 
-            kkey={boxmovie.movieCd}
-            tiitle={boxmovie.movieNm}
-            />
+          <form onSubmit={this.handleSubmit}>
+            <input value={this.state.value}onChange={this.handleChange} placeholder="yyyy-mm-dd 형식으로 날짜를 입력하세요."></input>
+            <div>
+              {search === "" ? <h1>검색창에 암것두 없어 ,, </h1> : 
+              
+                boxmovies.map(boxmovie => (
+                <WeekMovie 
+                kkey={boxmovie.movieCd}
+                tiitle={boxmovie.movieNm}
+                />
+              ))}
+            </div>
+          </form>
         )
-      })}</div>;
-      }
     }
+}
   
   export default WeekBoxMovie;
