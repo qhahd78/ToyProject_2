@@ -2,12 +2,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 import { signInWithGoogle } from '../firebaseConfig';
 import { auth } from "../firebaseConfig";
+import reactDom from 'react-dom';
+import { render } from '@testing-library/react';
 
 // let user = firebase.auth().currentUser;
 
-function GoogleSignin(props) {
+function GoogleSignin() {
     auth.onAuthStateChanged(user => {
-
+        
         if(user !== null){
             alert(`${user.displayName} 님이 로그인 했습니다. `);
             return false;
@@ -16,6 +18,7 @@ function GoogleSignin(props) {
     
     return (
         <div>
+            <p></p>
             <button onClick={signInWithGoogle}>로그인</button>
             <button onClick={() => { 
                             auth.signOut(); 

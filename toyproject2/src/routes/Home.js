@@ -14,7 +14,7 @@ class Home extends React.Component{
           {movieList}
          }
        }
-         = await axios.get("http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210201");
+         = await axios.get("http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210101");
         console.log(movieList)
         this.setState({ movies: movieList, isLoading: false })
       }
@@ -36,4 +36,6 @@ class Home extends React.Component{
         })}</div>;
       }
      }
+
 export default Home;
+
