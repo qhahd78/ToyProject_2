@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import DayMovieSearch from '../Components/DayMovieSearch';
+import './search.css';
 
 class DailyBoxMovieSearch extends React.Component {
   state = {
@@ -15,7 +16,7 @@ class DailyBoxMovieSearch extends React.Component {
 
     try {
       if (search === "") {
-        this.setState({ none: "결과값이 없습니다. ", movies: [], isLoading: false })
+        this.setState({ movies: [], isLoading: false })
       } else {
 
         const { data: {
@@ -63,7 +64,12 @@ class DailyBoxMovieSearch extends React.Component {
               {movies.map(movie => (
                 <DayMovieSearch
                   key={movie.movieCd}
-                  title={movie.movieNm} />
+                  title={movie.movieNm} 
+                  titleEng={movie.movieNmEn}
+                  salesAmt={movie.salesAmt}
+
+                  />
+                  
               ))}
             </div>
           </form>

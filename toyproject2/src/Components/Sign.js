@@ -6,6 +6,8 @@ import {HashRouter, Route} from 'react-router-dom';
 import reactDom from 'react-dom';
 import { render } from '@testing-library/react';
 
+import './sign.css';
+
 // let user = firebase.auth().currentUser;
 
 function GoogleSignin() {

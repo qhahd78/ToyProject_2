@@ -28,18 +28,20 @@ function App(){
 
       <div className="body">
         <div className="movie-list">
+            <p className="title">영화목록</p>
+            <div className="movie-list2">
+              <Home />
+            </div>
+        </div>
+
+        <div className="movie-list">
             <p className="title">오늘의 박스오피스목록</p>
             <div className="movie-list2">
                 <DayBoxMovie />
             </div>
         </div>
 
-        <div className="movie-list">
-            <p className="title">무작위 영화목록</p>
-            <div className="movie-list2">
-              <Home />
-            </div>
-        </div>
+        
 
         <div className="movie-list">
             <p className="title">이번주 박스오피스목록</p>
@@ -52,14 +54,31 @@ function App(){
         <Route path="/detail" component={Detail} />
       </HashRouter> */}
       </div>
-      <div className="ss">
-        <p className="title">영화 검색</p>
-          <span><Search /></span>
-        <p className="title">주별 박스오피스목록 검색</p>
-          <span><WeekBoxMovieSearch /></span>
-          <p className="title">오늘의 박스오피스 목록 검색</p>
-          <span><DailyBoxMovieSearch /></span>
+      <div className="body">
+        <div className="movie-list">
+          <p className="title">영화 검색</p>
+          <div className="movie-list2">
+            <Search />
+          </div>
         </div>
+
+        <div className="movie-list">
+          <p className="title">오늘의 박스오피스 목록 검색</p>
+          <div className="movie-list2">
+            <DailyBoxMovieSearch />
+          </div>
+        </div>
+
+        <div className="movie-list">
+          <p className="title">주별 박스오피스목록 검색</p>
+          <div className="movie-list2">
+            <WeekBoxMovieSearch />
+          </div>
+        </div>
+
+        
+
+      </div>
     </div>
     );
   }

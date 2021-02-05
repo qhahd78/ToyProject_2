@@ -19,12 +19,12 @@
     font-style: normal;
 }
 
-
-.movie-title {
-    font-family: 'ELAND_Choice_M';
-    font-size: 20px;
-}
-
-span {
+input {
+    width: 250px;
     font-family: 'ELAND_Choice_L';
+    color: white;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 1);
+    border-style: none;
+    border-bottom: 1px solid white;
 }

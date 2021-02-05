@@ -1,11 +1,13 @@
 import React from 'react';
 
-function DayMovieSearch({key, title}){
+function DayMovieSearch({key, title, titleEng, salesAmt}){
     return(
-        <div>
-            <h1>{key}</h1>
-            <h1>{title}</h1>
-        </div>
+        <p>
+            <span>{key}</span>
+            <span className="movie-title">{title}</span>
+            <span>{titleEng}</span><br></br>
+            <span>매출액 : {salesAmt} 원</span>
+        </p>
     )
 }
 

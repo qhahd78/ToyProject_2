@@ -63,7 +63,11 @@ class Search extends React.Component {
               {movies.map(movie => (
                 <SearchMovie
                   key={movie.movieCd}
-                  title={movie.movieNm} />
+                  titleEng={movie.movieNmEn}
+                  title={movie.movieNm} 
+                  openDt={movie.openDt}
+                  />
+                  
               ))}
             </div>
           </form>

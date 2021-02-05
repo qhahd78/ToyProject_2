@@ -24,6 +24,8 @@
     font-family: 'ELAND_Choice_M';
 }
 
-span {
-    font-family: 'ELAND_Choice_L';
+.rank {
+    margin-right: 10px;
+    font-family: 'ELAND_Choice_M';
+    font-size: 18px;
 }

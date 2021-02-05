@@ -19,12 +19,18 @@
     font-style: normal;
 }
 
-
-.movie-title {
-    font-family: 'ELAND_Choice_M';
+button {
+    margin-top: 10px;
+    margin-left: 10px;
     font-size: 20px;
+    background-color: rgba(82, 82, 82, 0);
+    color: rgb(82, 82, 82);
+    border-style: none;
+    font-family: 'ELAND_Choice_B';
 }
 
-span {
-    font-family: 'ELAND_Choice_L';
+button:hover {
+    cursor: pointer;
+    color: rgb(51, 116, 255);
+    transition: .3s;
 }

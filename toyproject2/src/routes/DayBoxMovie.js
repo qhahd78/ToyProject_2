@@ -32,6 +32,7 @@ class DayBoxMovie extends React.Component{
             <DayMovie 
             kkkey={daymovie.movieCd}
             tiiitle={daymovie.movieNm}
+            audiAcc={daymovie.audiAcc}
             />
         )
       })}</div>;

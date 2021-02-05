@@ -73,6 +73,8 @@ class WeekBoxMovieSearch extends React.Component{
                 <WeekMovieSearch 
                 key={boxmovie.movieCd}
                 title={boxmovie.movieNm}
+                titleEng={boxmovie.movieNmEn}
+                audiCnt={boxmovie.audiCnt}
                 />
               ))}
             </div>
