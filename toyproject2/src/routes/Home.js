@@ -14,7 +14,7 @@ class Home extends React.Component{
           {movieList}
          }
        }
-         = await axios.get("http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210101&itemPerPage=20");
+         = await axios.get("http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f6649d26347bb450475cfb25dee1dd41&itemPerPage=20");
         this.setState({ movies: movieList, isLoading: false })
       }
       componentDidMount() {
@@ -27,8 +27,10 @@ class Home extends React.Component{
             <Movie 
              key={movie.movieCd}
              title={movie.movieNm}
+             titleEng={movie.movieNmEn}
              genre={movie.genreAlt}
              prdtYear={movie.prdtYear}
+             openYear={movie.openDt}
              />
           )
         })}</div>;
@@ -36,4 +38,3 @@ class Home extends React.Component{
      }
 
 export default Home;
-

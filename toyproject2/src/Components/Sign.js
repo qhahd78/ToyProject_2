@@ -24,6 +24,7 @@ function GoogleSignin() {
             <button onClick={() => { 
                             auth.signOut(); 
                             alert('로그아웃 합니다');
+                            console.log('로그아웃했습니다.')
                         }}>로그아웃</button>
         </div>
     )

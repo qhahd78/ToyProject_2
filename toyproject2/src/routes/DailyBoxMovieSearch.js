@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import SearchMovie from '../Components/SearchMovie';
+import DayMovieSearch from '../Components/DayMovieSearch';
 
-class Search extends React.Component {
+class DailyBoxMovieSearch extends React.Component {
   state = {
     isLoading: true,
     movies: [],
@@ -19,16 +19,16 @@ class Search extends React.Component {
       } else {
 
         const { data: {
-          movieListResult:
-          { movieList }
+          boxOfficeResult:
+          { dailyBoxOfficeList }
         }
         }
-          = await axios.get("http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=f6649d26347bb450475cfb25dee1dd41&targetDt=20210101&itemPerPage=20", {
-            params: { movieNm: search }
+          = await axios.get("http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f6649d26347bb450475cfb25dee1dd41", {
+            params: { targetDt : search }
           });
         // console.log(search)
-        this.setState({ movies: movieList, isLoading: false })
-        console.log(movieList)
+        this.setState({ movies: dailyBoxOfficeList, isLoading: false })
+        // console.log(dailyBox)
       }
     } catch (error) {
       console.log(error);
@@ -57,11 +57,11 @@ class Search extends React.Component {
       <section>
         <div>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="영화 제목을 검색하세요.">
+            <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="오늘의 날짜를 입력하세요.">
             </input>
             <div>
               {movies.map(movie => (
-                <SearchMovie
+                <DayMovieSearch
                   key={movie.movieCd}
                   title={movie.movieNm} />
               ))}
@@ -76,5 +76,5 @@ class Search extends React.Component {
 }
 
 
-export default Search;
+export default DailyBoxMovieSearch;
 
